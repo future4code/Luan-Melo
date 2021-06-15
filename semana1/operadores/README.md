@@ -1,1 +1,0 @@
-Aprendendo operadores lógicos e aritiméticos: Professor Show de bola!
