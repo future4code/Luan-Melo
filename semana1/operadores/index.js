@@ -59,7 +59,7 @@
 //                                     Exercise III
 //-----------------------------------------------------------------------------------
 // const birthDate = Number(prompt('enter the year of your birth'))
-// console.log('user age in months', birthDate * 12, '\nuser age in days', birthDate * 365, '\nuser age in hours', birthDate * 24)
+// console.log('user age in months', birthDate * 12, '\nuser age in days', birthDate * 365, '\nuser age in hours', birthDate * 8766)
 //-----------------------------------------------------------------------------------
 //                                     Exercise IIII
 //-----------------------------------------------------------------------------------
