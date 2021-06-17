@@ -68,9 +68,10 @@
 // ${array[2]}
 // ${array[3]}
 // ${array[4]}`)
-// const comida = prompt('De 1 a 5 qual a sua comida favorita: ?')
+// const comida = Number(prompt('De 1 a 5 qual a sua comida favorita: ?'))
 // console.log('Minha comida favorita é', array[comida - 1])
-// array.splice(1, 1, comida)
+// array.splice(1, 1, array[comida])
+// console.log('ERROR', array)
 
 //----------------------------------------------------------------------------------
 //                                     Exercício III
@@ -93,3 +94,6 @@
 
 // const frase = prompt('Digite uma frase: ')
 // console.log(frase.trim().split(""))
+
+const array = ['Luan', 'Rafael', 'Cleiton']
+console.log(array)
