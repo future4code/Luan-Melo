@@ -11,16 +11,16 @@ function inverteArray(array) {
 // console.log(inverteArray([0, 8, 23, 16, 10, 15, 41, 12, 13]))
 
 // // EXERCÍCIO 02
-// function retornaNumerosParesElevadosADois(array) {
-//     const resultado = []
-//     for (let i = 0; i < array.length; i++) {
-//         if (array[i] % 2 === 0) {
-//             resultado.push(array[i] ** 2)
-//         }
-//     }
-//     return resultado
-// }
-// retornaNumerosParesElevadosADois([1, 2, 3, 4, 5, 6])
+function retornaNumerosParesElevadosADois(array) {
+    const resultado = []
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            resultado.push(array[i] ** 2)
+        }
+    }
+    return resultado
+}
+retornaNumerosParesElevadosADois([1, 2, 3, 4, 5, 6])
 
 // // EXERCÍCIO 03
 // function retornaNumerosPares(array) {
