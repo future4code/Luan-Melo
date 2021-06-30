@@ -5,55 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Adicionar Produto</title>
 
 </head>
 
 <body>
-    <div>
-        <p>FullStack Estudos</p>
+    <div class='titulo-do-curso'>
+        <h1>Bem-vind@ ao <em>Labenu FullStack</em>!</h1>
+        <p>Vamos programar</p>
     </div>
 
-    <div>
+    <div class='paginas-redirecionar'>
         <a href="./index.html">Página Inicial</a>
         <a href="./ctrl-estoque.html">Controle de Estoque</a>
-        <a href="./add-produto.html">Adicionar Produto</a>
+        <a id='pronduto-cor' href="./add-produto.html">Adicionar Produto</a>
         <a href="./funcionarios.html">Funcionários</a>
     </div>
 
 
-    <h2>Adicionar Produto</h2>
+    <h2 class='adicionar-produto'>Adicionar Produtos</h2>
     <form action="">
-        <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
+        <div class='background-produto'>
+            <div>
+                <label for="link-foto">Link para foto: </label><br>
+                <input placeholder="link da foto" type="url" id="link-foto" name="link-foto">
+            </div>
+
+            <div>
+                <label for="descricao">Descrição do produto: </label><br>
+
+                <input placeholder="descrição do produto" type="text" id="descricao" name="descrição">
+            </div>
+
+            <div>
+                <label for="preco">Preço (em R$): </label><br>
+                <!-- Adicione o id apropriado e o type para receber números abaixo -->
+                <input placeholder="preço do produto" type="number" id="preco" name="preço">
+            </div>
+
+            <div>
+                <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+                <label>Quantidade disponível: </label><br>
+                <input type='number' placeholder="quantidade do produto">
+            </div>
+
+            <div class="form-add">
+                <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+                <button class='btn-adicionar' type="submit">Adicionar</button>
+            </div>
         </div>
-
-        <div>
-            <label for="descricao">Descrição do produto: </label>
-
-            <input type="text" id="descricao" name="descrição">
-        </div>
-
-        <div>
-            <label for="preco">Preço (em R$): </label>
-            <!-- Adicione o id apropriado e o type para receber números abaixo -->
-            <input type="number" id="preco" name="preço">
-        </div>
-
-        <div>
-            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label>Quantidade disponível: </label>
-            <input>
-        </div>
-
-        <div class="form-add">
-            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
-        </div>
-
     </form>
+    <div class='rodape-falso'>
+        <p>Siga-nos nas redes sociais!</p>
+        <div class='centralizar-img'>
+            <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+            <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+            <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
 
+        </div>
+    </div>
 </body>
 
 </html>
