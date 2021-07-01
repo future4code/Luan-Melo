@@ -19,6 +19,9 @@ h2 {
     text-align: center;
 }
 
+
+/*adicionei outline para remover borda do input */
+
 input {
     border: 0 none;
     height: 20px;
