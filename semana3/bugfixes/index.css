@@ -73,6 +73,9 @@ div img {
     width: 16px;
 }
 
+
+/* efeito do icon*/
+
 .icone:hover {
     opacity: 50%;
 }
