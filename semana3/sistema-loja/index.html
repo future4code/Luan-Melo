@@ -15,58 +15,63 @@
         <p>Vamos programar</p>
     </div>
 
-    <div class='paginas-redirecionar'>
-        <a href="./index.html">Página Inicial</a>
-        <a href="./ctrl-estoque.html">Controle de Estoque</a>
-        <a id='pronduto-cor' href="./add-produto.html">Adicionar Produto</a>
-        <a href="./funcionarios.html">Funcionários</a>
-    </div>
-
+    <ul class='inicial'>
+        <li>
+            <a href="./index.html">Página Inicial</a>
+        </li>
+        <li>
+            <a href="./ctrl-estoque.html">Controle de Estoque</a>
+        </li>
+        <li>
+            <a id='pronduto-cor' href="./add-produto.html">Adicionar Produto</a>
+        </li>
+        <li>
+            <a href="./funcionarios.html">Funcionários</a>
+        </li>
+    </ul>
     <div class='produtos-do-curso'>
         <h2>Cursos Disponiveis</h2>
-
     </div>
     <div>
-        <ul>
+        <ul class='produto-programacao'>
             <li>
+
                 <h3>html</h3>
                 <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png" alt="html" width="100px" />
                 <h4>Curso fullstack Labenu</h4>
-                <p>192R$</p>
-                <button class='btn-adicionar' type="submit">Comprar</button>
+                <p class='valor'>192R$</p>
+                <button class='btn-adicionar' type="submit" value='enviar'>Comprar</button>
             </li>
-            <li>
+            <li class='produto-programacao'>
                 <h3>css</h3>
-                <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png" alt="html" width="100px" />
+                <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png" alt="css" width="100px" />
                 <h4>Curso fullstack Labenu</h4>
-                <p>192R$</p>
-                <button class='btn-adicionar' type="submit">Comprar</button>
+                <p class='valor'>85R$</p>
+                <button class='btn-adicionar' type="submit" value='enviar'>Comprar</button>
             </li>
-            <li>
+            <li class="produto-programacao">
                 <h3>js</h3>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSloPx1B_D3kmMvwYPZDvr0du38f3vD0NIM3w&usqp=CAU" alt="html" width="100px" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSloPx1B_D3kmMvwYPZDvr0du38f3vD0NIM3w&usqp=CAU" alt="js" width="100px" />
                 <h4>Curso fullstack Labenu</h4>
-                <p>192R$</p>
-                <button class='btn-adicionar' type="submit">Comprar</button>
+                <p class='valor'>398$</p>
+                <button class='btn-adicionar' type="submit" value='enviar'>Comprar</button>
             </li>
-            <li>
+            <li class='produto-programacao'>
                 <h3>react</h3>
-                <img src="https://ionicframework.com/docs/assets/icons/logo-react-icon.png" alt="html" width="100px" />
+                <img src="https://ionicframework.com/docs/assets/icons/logo-react-icon.png" alt="react" width="100px" />
                 <h4>Curso fullstack Labenu</h4>
-                <p>192R$</p>
-                <button class='btn-adicionar' type="submit">Comprar</button>
+                <p class='valor'>425$</p>
+                <button class='btn-adicionar' type="submit" value='enviar'>Comprar</button>
             </li>
         </ul>
     </div>
-    <div class='rodape-falso'>
-        <p>Siga-nos nas redes sociais!</p>
-        <div class='centralizar-img'>
-            <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
-            <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
-            <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
-
-        </div>
-    </div>
 </body>
+
+<footer class='centralizar-img'>
+    <p>Siga-nos nas redes sociais!</p>
+    <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+    <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+    <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+</footer>
 
 </html>
