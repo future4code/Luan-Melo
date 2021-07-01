@@ -78,14 +78,11 @@ div img {
     background-color: #2274a5;
     color: white;
     padding: 8% 0;
+    display: block;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
-}
-
-#container-de-descricao {
-    display: block;
 }
 
 #container-para-comprar {
