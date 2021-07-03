@@ -3,36 +3,48 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
-    /* background-color: white; */
+    font-weight: 500px;
+    min-height: 100vh;
+}
+
+
+/* Barra de navegação */
+
+nav {
     height: 100vh;
+    max-width: 100vw;
     font-family: 'Roboto', sans-serif;
-    background-image: url('https://miro.medium.com/max/3840/0*BTRGNVTctSoTOKQu');
+    background-image: url(./img/84966e7ba6178350b13b7f23f1e3857b.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .menu {
     list-style-type: none;
-    padding: 0;
-    background-color: rgb(24, 112, 134);
+    background-color: rgb(0, 0, 0);
 }
 
-ul {
-    margin-left: 30px;
+.menu ul {
+    max-width: 100vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu li {
-    display: inline;
-}
-
-.menu li a {
+    height: 10%;
+    display: inline-block;
     text-decoration: none;
     color: white;
-    display: inline-block;
-    padding: 20px 0;
+    position: relative;
+    top: 10%;
+    margin: 20px 10px;
+    text-align: center;
 }
 
 .btn {
@@ -41,14 +53,143 @@ ul {
     border: none;
     color: white;
     border-radius: 4px;
-    background-color: rgb(24, 112, 134);
-    transition: ease-out 0.6s;
+    background-color: rgb(12, 12, 12);
     font-size: 1.1em;
-    box-shadow: inset 0 0 0 0 rgb(46, 155, 182);
-    transition: ease-out 0.6s;
+    box-shadow: inset 0 0 0 0 rgb(71, 16, 173);
+    transition: ease-out 0.9s;
     outline: none;
 }
 
 .btn:hover {
-    box-shadow: inset 300px 0 0 0 rgb(75, 185, 212);
+    box-shadow: inset 300px 0 0 0 rgb(95, 46, 187);
+}
+
+.btn:active {
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    background-color: rgb(10, 17, 116);
+    font-size: 1.1em;
+    box-shadow: inset 0 0 0 0 rgb(64, 126, 184);
+    transition: ease-out 0.9s;
+    outline: none;
+}
+
+
+/* lista abaixo do menu*/
+
+#listar-itens {
+    width: 50vw;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    position: absolute;
+    left: 25%;
+    box-shadow: 2px 2px 5px 1px rgb(26, 25, 25);
+}
+
+
+/* section com informações */
+
+section h2 {
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+section li {
+    width: 23vw;
+    list-style-type: none;
+    text-align: center;
+}
+
+.container-de-informacao {
+    display: block;
+    height: 400px;
+    background-color: rgb(22, 22, 21);
+    border-radius: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-de-informacao img {
+    width: 90px;
+    border-radius: 50%;
+    border: 3px dashed white;
+    margin: 20px 0;
+}
+
+.container-de-informacao h3 {
+    background-color: rgb(53, 53, 51);
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+.container-de-informacao p {
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2em;
+    border-bottom: 1px solid white;
+}
+
+.container-de-informacao li button {
+    margin-top: 40px;
+    padding: 10px 10px;
+    background-color: transparent;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.9s;
+    font-size: 1.1em;
+    box-shadow: inset 0 0 0 0 rgb(11, 153, 46);
+    outline: none;
+    position: sticky;
+    border: 1px solid white;
+}
+
+.container-de-informacao li button:hover {
+    box-shadow: inset 300px 0 0 0 rgb(52, 184, 85);
+}
+
+
+/* rodapé da página */
+
+.rodape {
+    opacity: 80%;
+    background-color: rgb(0, 0, 0);
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.informacao-sobre-mim {
+    display: block;
+    height: 400px;
+    width: 100%;
+    background-color: rgb(22, 22, 21);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 90%;
+}
+
+.minhas-informacoes p {
+    color: white;
+    padding: 0 20px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.minhas-informacoes a button {
+    background-color: green;
 }
