@@ -101,22 +101,32 @@ const array_original = [10, 5, 6, 16, 29, 40]
 
 // console.log(novaArrayStrings(array_string))
 //E)
-const maiorEMenorNumero = (arrayDeNumeros) => {
-    let maiorNumero = 0
-    let menorNumero = 0
-    for (let i = 0; i < arrayDeNumeros.length - 1; i++) {
-        const valorMaximo = arrayDeNumeros[i]
-        if (i === 0) {
-            maiorNumero = menorNumero = valorMaximo
-        }
-        if (valorMaximo > maiorNumero) {
-            maiorNumero = valorMaximo
-        }
-        if (valorMaximo < menorNumero) {
-            menorNumero = valorMaximo
-        }
-    }
-    console.log(`O maior número é ${maiorNumero} e o menor é ${menorNumero}`)
-}
+// const maiorEMenorNumero = (arrayDeNumeros) => {
+//     let maiorNumero = 0
+//     let menorNumero = 0
+//     for (let i = 0; i < arrayDeNumeros.length - 1; i++) {
+//         const valorMaximo = arrayDeNumeros[i]
+//         if (i === 0) {
+//             maiorNumero = menorNumero = valorMaximo
+//         }
+//         if (valorMaximo > maiorNumero) {
+//             maiorNumero = valorMaximo
+//         }
+//         if (valorMaximo < menorNumero) {
+//             menorNumero = valorMaximo
+//         }
+//     }
+//     console.log(`O maior número é ${maiorNumero} e o menor é ${menorNumero}`)
+// }
 
-maiorEMenorNumero([80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55])
+// maiorEMenorNumero([80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55])
+
+
+// desafio
+
+const comidas = ['Arroz', 'Feijão', 'Frango']
+const arrayComidas = comidas.map((item) => {
+    return item
+});
+
+console.log
