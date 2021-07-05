@@ -5,99 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        img {
-            width: 50px;
-            height: 50px;
-        }
-        
-        .background {
-            background-color: rgb(53, 2, 83);
-        }
-        
-        .backgroundTitulo {
-            background-color: rgb(103, 4, 160);
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        
-        .html5 {
-            opacity: 60%;
-            background-color: rgb(171, 111, 206);
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white
-        }
-        
-        .html5:hover {
-            opacity: 100%;
-            text-align: center;
-        }
-        
-        .css3 {
-            opacity: 60%;
-            background-color: rgb(171, 111, 206);
-            text-align: center;
-            color: white
-        }
-        
-        .css3:hover {
-            opacity: 100%;
-            text-align: center;
-        }
-        
-        .js {
-            opacity: 60%;
-            background-color: rgb(171, 111, 206);
-            text-align: center;
-            color: white
-        }
-        
-        .js:hover {
-            opacity: 100%;
-            text-align: center;
-        }
-        
-        .react {
-            opacity: 60%;
-            background-color: rgb(171, 111, 206);
-            text-align: center;
-            color: white
-        }
-        
-        .react:hover {
-            opacity: 100%;
-            text-align: center;
-        }
-        
-        .db {
-            opacity: 60%;
-            background-color: rgb(171, 111, 206);
-            text-align: center;
-            color: white
-        }
-        
-        .db:hover {
-            opacity: 100%;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>Controle de Estoque</title>
 </head>
 
 <body>
-    <div>
-        <p>Nome da lojinha</p>
+    <div class='titulo-do-curso'>
+        <h1>Bem-vind@ ao <em>Labenu FullStack</em>!</h1>
+        <p>Estoque</p>
     </div>
 
-    <div>
-        <a href="./index.html">Página Inicial</a>
-        <a href="./ctrl-estoque.html">Controle de Estoque</a>
-        <a href="./add-produto.html">Adicionar Produto</a>
-        <a href="./funcionarios.html">Funcionários</a>
-    </div>
+    <ul class='inicial'>
+        <li>
+            <a href="./index.html">Página Inicial</a>
+        </li>
+        <li>
+            <a href="./ctrl-estoque.html">Controle de Estoque</a>
+        </li>
+        <li>
+            <a id='pronduto-cor' href="./add-produto.html">Adicionar Produto</a>
+        </li>
+        <li>
+            <a href="./funcionarios.html">Funcionários</a>
+        </li>
+    </ul>
 
-    <h2>Controle de Estoque</h2>
+    <h2 class='controle-estoque'>Controle de Estoque</h2>
 
     <table class=background>
         <tr class='backgroundTitulo'>
@@ -142,10 +75,15 @@
             <td> 6 </td>
         </tr>
 
-        <!-- Crie mais uma linha desta tabela abaixo \/ -->
-
     </table>
 
 </body>
+
+<footer class='centralizar-img'>
+    <p>Siga-nos nas redes sociais!</p>
+    <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+    <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+    <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+</footer>
 
 </html>
