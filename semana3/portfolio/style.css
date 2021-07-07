@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* Barra de navegação */
+
+nav {
+    height: 100vh;
+    max-width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    background-image: url(./img/84966e7ba6178350b13b7f23f1e3857b.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu {
+    list-style-type: none;
+    background-color: rgb(0, 0, 0);
+}
+
+.menu ul {
+    max-width: 100vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li {
+    height: 10%;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    top: 10%;
+    margin: 20px 10px;
+    text-align: center;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    background-color: rgb(12, 12, 12);
+    font-size: 1.1em;
+    box-shadow: inset 0 0 0 0 rgb(71, 16, 173);
+    transition: ease-out 0.9s;
+    outline: none;
+}
+
+.btn:hover {
+    box-shadow: inset 300px 0 0 0 rgb(95, 46, 187);
+}
+
+.btn:active {
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    background-color: rgb(10, 17, 116);
+    font-size: 1.1em;
+    box-shadow: inset 0 0 0 0 rgb(64, 126, 184);
+    transition: ease-out 0.9s;
+    outline: none;
+}
+
+
+/* lista abaixo do menu*/
+
+#listar-itens {
+    width: 50vw;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    position: absolute;
+    left: 25%;
+    box-shadow: 2px 2px 5px 1px rgb(26, 25, 25);
+}
+
+
+/* section com informações */
+
+section h2 {
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+section li {
+    width: 23vw;
+    list-style-type: none;
+    text-align: center;
+}
+
+.container-de-informacao {
+    display: block;
+    height: 400px;
+    background-color: rgb(22, 22, 21);
+    border-radius: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-de-informacao img {
+    width: 90px;
+    border-radius: 50%;
+    border: 3px dashed white;
+    margin: 20px 0;
+}
+
+h3 {
+    background-color: rgb(78, 78, 74);
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+.container-de-informacao p {
+    color: white;
+    padding: 10px 0;
+    font-size: 1.2em;
+    border-bottom: 1px solid white;
+}
+
+.container-de-informacao li button {
+    margin-top: 40px;
+    padding: 10px 10px;
+    background-color: transparent;
+    color: white;
+    border-radius: 4px;
+    transition: ease-out 0.9s;
+    font-size: 1.1em;
+    box-shadow: inset 0 0 0 0 rgb(11, 153, 46);
+    outline: none;
+    position: sticky;
+    border: 1px solid white;
+}
+
+.container-de-informacao li button:hover {
+    box-shadow: inset 300px 0 0 0 rgb(52, 184, 85);
+}
+
+
+/* rodapé da página */
+
+.rodape {
+    height: 100px;
+    background-color: rgb(27, 26, 26);
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.rodape h4 {
+    color: white;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1.3em;
+}
+
+.informacao-sobre-mim {
+    display: block;
+    height: 400px;
+    width: 100%;
+    background-color: rgb(22, 22, 21);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 90%;
+}
+
+.minhas-informacoes p {
+    color: white;
+    padding: 0 20px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.minhas-informacoes a button {
+    background-color: green;
+}
+
+
+/* contatos */
+
+fieldset {
+    width: 300px;
+    height: 250px;
+}
+
+.btn_submit {
+    width: 100px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    background-color: rgb(119, 9, 9);
+    font-size: 1.1em;
+    box-shadow: inset 0 0 0 0 rgb(161, 32, 32);
+    transition: ease-out 0.9s;
+    outline: none;
+}
+
+.btn_submit:hover {
+    box-shadow: inset 300px 0 0 0 rgb(201, 76, 72);
+}
+
+.box {
+    width: 100vh;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(22, 22, 21);
+}
+
+input {
+    display: inline-block;
+    width: 300px;
+    margin: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    outline: 0;
+}
+
+textarea {
+    margin: 0px;
+}
+
+.msg {
+    width: 100%;
+    border: none;
+    outline: 0;
+}
+
+
+/* projetos */
+
+.projetos {
+    width: 100vh;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(22, 22, 21);
+}
+
+.projetos img {
+    width: 550px;
+    height: 250px;
+    padding: 10px;
+}
+
+.rede-social img {
+    width: 40px;
+    border-radius: 20%;
+    border: 1px solid white;
+}

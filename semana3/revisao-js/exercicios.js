@@ -124,14 +124,12 @@ function segundoMaiorEMenor(array) {
     let guardaPosicaoMenor
     for (let i = 0; i < array.length; i++) {
         if (i === 0) {
-            console.log('primeira rodada', i)
             maiorValor = menorValor = array[i]
             guardaPosicaoMaior = guardaPosicaoMenor = i
         }
         for (let k = 0; k < array.length; k++) {
             if (array[k] > maiorValor) {
                 maiorValor = array[k]
-                    // console.log('Maior valor', maiorValor)
                 guardaPosicaoMaior = k
             }
             if (array[k] < menorValor) {
@@ -140,24 +138,34 @@ function segundoMaiorEMenor(array) {
             }
         }
     }
+    let firstRun = true
     for (let i = 0; i < array.length; i++) {
-        if (i === 0) {
-            segundoMaiorValor = segundoMenorValor = array[i]
-        }
-        for (let k = 0; k < array.length; k++) {
-            if (array[k] > maiorValor && k !== guardaPosicaoMaior) {
-                segundoMaiorValor = array[k]
+        if (i != guardaPosicaoMaior && i != guardaPosicaoMenor) {
+            if (firstRun) {
+                segundoMaiorValor = segundoMenorValor = array[i]
+                firstRun = false
             }
-            if (array[k] < menorValor && k !== guardaPosicaoMenor) {
-                segundoMenorValor = array[k]
+            for (let k = 0; k < array.length; k++) {
+                if (array[k] > segundoMaiorValor && k !== guardaPosicaoMaior) {
+                    segundoMaiorValor = array[k]
+                }
+                if (array[k] < segundoMenorValor && k !== guardaPosicaoMenor) {
+                    segundoMenorValor = array[k]
+                }
             }
         }
     }
-    novaArray.push(segundoMaiorValor)
-    novaArray.push(segundoMenorValor)
+
+    if (array.length <= 2) {
+        novaArray.push(menorValor)
+        novaArray.push(maiorValor)
+    } else {
+        novaArray.push(segundoMaiorValor)
+        novaArray.push(segundoMenorValor)
+    }
     return novaArray
 }
-console.log(segundoMaiorEMenor([1, 2, 3, 4, 5, 6, 7]))
+console.log(segundoMaiorEMenor([1]))
 
 
 // // EXERCÍCIO 11
