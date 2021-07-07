@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header-principal {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.header-principal img {
+    padding: 0 10px;
+}
+
+.btn {
+    margin-right: 20px;
+    width: 50px;
+}
+
+
+/* main */
+
+.sessao-de-navegacao {
+    width: 200px;
+    background-color: #f2d0e0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sessao-de-navegacao li {
+    list-style-type: none;
+    margin: 15px 0;
+    margin-right: 70px;
+}
+
+.sessao-de-navegacao li img {
+    width: 20px;
+}
+
+.produtos {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: c; */
+}
+
+.produtos img {
+    width: 200px;
+}
+
+
+/*Rodapé */
+
+footer {
+    height: 40px;
+    background-color: mediumvioletred;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
