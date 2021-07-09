@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-bottom: 10px;
+}
+
+header {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(175, 13, 13);
+    padding: 0 5px;
+}
+
+body {
+    height: 100vh;
+}
+
+.futuretube {
+    width: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.videos-imagem {
+    margin: 5px 10px;
+    box-shadow: 1px 1px 1px 1px red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.videos-imagem p {
+    background-color: rgb(179, 179, 179);
+    padding: 10px;
+    margin: 10px;
+}
+
+.videos-imagem button {
+    background-color: brown;
+    border: none;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    color: white;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.videos-imagem button:hover {
+    background-color: rgb(185, 66, 66);
+    box-shadow: 1px 1px 1px 1px rgb(22, 22, 22);
+}
+
+.img {
+    width: 5px;
+    padding: 0 10px;
+}
+
+.imagem {
+    padding: 20px;
+    height: 100%;
+    width: 250px;
+}
+
+.videos {
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+}
+
+.videos h1 {
+    background-color: brown;
+    margin: 5px;
+    padding: 5px 5px;
+    color: white;
+}
+
+video {
+    width: 55vw;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+input {
+    width: 100px;
+    padding: 10px;
+    margin-right: 50px;
+    text-align: center;
+    border: none;
+    outline: 0;
+}
+
+footer {
+    height: 50px;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(175, 13, 13);
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+
+/* responsivando */
+
+@media screen and (max-device-width: 768px) {
+    .videos-imagem {
+        width: 100%;
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .img {
+        width: 10%;
+    }
+    .container {
+        height: 70%;
+        grid-template-columns: repeat(2, 2fr);
+    }
+    input {
+        width: 200px;
+        height: 40px;
+        min-width: 90px;
+        max-width: 200px;
+    }
+    header {
+        width: 80vh;
+    }
+    .img {
+        width: 4em;
+    }
+    .imagem {
+        width: 100%;
+    }
+    footer {
+        width: 80vh;
+    }
+    .videos-imagem p {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (min-device-width: 360px) and (max-device-width: 640px) {
+    .futuretube h1 {
+        font-size: 1.1em;
+    }
+    .img {
+        width: 20%;
+    }
+    input {
+        min-width: 60px;
+        max-width: 120px;
+        margin: 0 20px
+    }
+    .container {
+        height: 100%;
+        grid-template-columns: 1fr;
+    }
+    .imagem {
+        width: 100%;
+    }
+    .videos-imagem {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    footer {
+        height: 30px;
+        width: 100%;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+}
