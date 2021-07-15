@@ -23,32 +23,30 @@ class App extends React.Component {
         nomeUsuario: 'Lucas',
         fotoUsuario: 'https://picsum.photos/51/51',
         fotoPost: 'https://picsum.photos/200/151',
+      },
+
+      {
+        nomeUsuario: 'Luan',
+        fotoUsuario: 'https://picsum.photos/52/52',
+        fotoPost: 'https://picsum.photos/200/152',
       }
     ]
   };
 
   render() {
-   
-      return (
+    // const {nomeUsuario, fotoUsuario, fotoPost} = this.state.pessoas[0]
+        return (
         <MainContainer>
-          <Post
-            nomeUsuario={'paulinha'}
-            fotoUsuario={'https://picsum.photos/50/50'}
-            fotoPost={'https://picsum.photos/200/150'}
-          />
-
-          <Post
-            nomeUsuario={'luan'}
-            fotoUsuario={'https://picsum.photos/51/51'}
-            fotoPost={'https://picsum.photos/200/151'}
-          />
-
-          <Post
-            nomeUsuario={'fernanda'}
-            fotoUsuario={'https://picsum.photos/52/52'}
-            fotoPost={'https://picsum.photos/200/152'}
-          />
-
+            {this.state.pessoas.map(({nomeUsuario, fotoUsuario, fotoPost}) => {
+              return (
+                <Post
+                    nomeUsuario = {nomeUsuario}
+                    fotoUsuario = {fotoUsuario}
+                    fotoPost = {fotoPost}
+                />
+              )
+            }
+          )};
         </MainContainer>
       );
     }
