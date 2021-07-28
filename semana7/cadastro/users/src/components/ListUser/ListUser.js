@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components";
 import axios from "axios";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 
 const Container = styled.div`
     height: 100vh;
@@ -53,27 +53,11 @@ const UserList = styled.div`
 
 `
 
-const Quebrar = styled.div`
-    display: flex;
-
-    button{
-        background-color: transparent;
-        border: none;
-        outline: 0;
-        color: white;
-    }
-
-    button:active{
-        color: black;
-    }
-
-`
-
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
 const headers = {
-  headers: {
-    Authorization: "luan-melo-lovelace"
-  }
+    headers: {
+        Authorization: "luan-melo-lovelace"
+    }
 };
 
 
@@ -83,56 +67,60 @@ class ListUser extends React.Component {
         search: ''
     }
 
+    componentDidMount() {
+        this.getUserList()
+    }
+
     onSearchUser = (event) => {
         this.setState({ search: event.target.value })
     }
 
-    getUserList = () => {
-        axios.get(url, headers)
-        .then((res) => {
-            this.setState({userCadastred: res.data})
-        })
-        .catch((err) => {
-            alert(err.response.data)
-        })
+    getUserList = async () => {
+        try {
+            const res = await axios.get(url, headers)
+            this.setState({ userCadastred: res.data })
+
+        } catch (err) {
+            alert("Erro desconhecido, entre em contato com a administração.")
+        }
     }
 
     deleteUser = (id) => {
         axios.delete(`${url}/${id}`, headers)
-        .then((res) => {
-            alert('Sucesso!')
-        })
+            .then((res) => {
+                alert('Sucesso!')
+                this.getUserList()
+            })
     }
 
-    searchUser = (name) => {
-        axios.get(`${url}/search?name=${name}`, headers)
-        .then((res)=> {
-            console.log(res.data)
-        })
-        .catch((error)=> {
-            console.log(error.response)
-            alert('Usuário não encontrado')
-        })
-    }
+    // searchUser = (name) => {
+    //     axios.get(`${url}/search?name=${name}`, headers)
+    //     .then((res)=> {
+    //         console.log(res.data)
+    //     })
+    //     .catch((error)=> {
+    //         console.log(error.response)
+    //         alert('Usuário não encontrado')
+    //     })
+    // }
 
     render() {
-        return(
+        return (
             <Container>
-                {this.state.userCadastred.length > 0 
-                ? <h1>Usuários Cadastrados</h1> 
-                : <p>Nenhum usuário está cadastrado no momento</p>}
-                {this.state.userCadastred.map(({name, id}, index)=> {
-                return (
-                    <UserList key={index}>
-                        <p>{name}</p>
-                        <button onClick={() => this.deleteUser(id)}><DeleteForeverIcon/></button>
-                    </UserList>)       
+                {this.state.userCadastred.length > 0
+                    ? <h1>Usuários Cadastrados</h1>
+                    : <p>Nenhum usuário está cadastrado no momento</p>}
+                {this.state.userCadastred.map(({ name, id }, index) => {
+                    return (
+                        <UserList key={index}>
+                            <p>{name}</p>
+                            <button onClick={() => this.deleteUser(id)}><DeleteForeverIcon /></button>
+                        </UserList>)
 
                 })}
-                {this.getUserList()}
             </Container>
         )
-    }    
+    }
 }
 
 export default ListUser;

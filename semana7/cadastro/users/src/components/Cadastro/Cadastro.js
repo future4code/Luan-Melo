@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios";
-import styled, {createGlobalStyle} from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import SendIcon from '@material-ui/icons/Send';
 
 const GlobalStyle = createGlobalStyle`
@@ -60,9 +60,9 @@ const ContainerBackGround = styled.div`
 
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
 const headers = {
-  headers: {
-    Authorization: "luan-melo-lovelace"
-  }
+    headers: {
+        Authorization: "luan-melo-lovelace"
+    }
 };
 
 class Cadastro extends React.Component {
@@ -72,34 +72,34 @@ class Cadastro extends React.Component {
         email: '',
         pageStart: true,
     }
-    
+
     onChangeNome = (event) => {
         this.setState({ nome: event.target.value })
-     }
-    
+    }
+
     onChangeEmail = (event) => {
-        this.setState({ email: event.target.value })    
+        this.setState({ email: event.target.value })
     }
     createUser = () => {
         const body = {
-          "name": this.state.nome,
-          "email": this.state.email
+            "name": this.state.nome,
+            "email": this.state.email
         }
-    
+
         axios.post(url, body, headers)
-        .then((res) => {
-            alert('Usuário cadastrado com sucesso!')
-            this.setState({nome: '', email: ''})
-        })
-        .catch((error) => {
-            alert('Nenhum usuário foi cadastrado');
-        })
+            .then((res) => {
+                alert('Usuário cadastrado com sucesso!')
+                this.setState({ nome: '', email: '' })
+            })
+            .catch((error) => {
+                alert('Nenhum usuário foi cadastrado');
+            })
     }
-    
-    render() {        
-        return(
-            <Container>   
-                <GlobalStyle/>
+
+    render() {
+        return (
+            <Container>
+                <GlobalStyle />
                 <ContainerBackGround>
                     <ContainerInputs
                         placeholder="Digite seu nome"
@@ -115,7 +115,7 @@ class Cadastro extends React.Component {
                         value={this.state.email}
                         onChange={this.onChangeEmail}
                     />
-                    <ContaninerButtons onClick={this.createUser}>Cadastrar<SendIcon/></ContaninerButtons>
+                    <ContaninerButtons onClick={this.createUser}>Cadastrar<SendIcon /></ContaninerButtons>
                 </ContainerBackGround>
             </Container>
         )

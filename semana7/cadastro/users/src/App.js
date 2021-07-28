@@ -1,6 +1,6 @@
 import React from "react"
 // import axios from "axios";
-import styled, {createGlobalStyle} from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Cadastro from "./components/Cadastro/Cadastro";
 import ListUser from "./components/ListUser/ListUser";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -33,25 +33,25 @@ const Container = styled.div`
       border: 1px solid white;
     }
 `
-
 class App extends React.Component {
   state = {
     pageStart: true,
   }
 
-  onChangePage = () => { 
-     this.setState({pageStart: !this.state.pageStart})
+  onChangePage = () => {
+    this.setState({ pageStart: !this.state.pageStart })
   }
+
   render() {
     return (
       <div>
-          <GlobalStyle/>
-          <Container>
-            {this.state.pageStart 
-            ? <button onClick={this.onChangePage}>Acessar Lista<ArrowForwardIcon/></button> 
-            : <button onClick={this.onChangePage}>Voltar Lista<ArrowBackIcon style={{margin: "0 10px"}}/></button>}
-          </Container>
-          {this.state.pageStart ? <Cadastro/> : <ListUser/>}
+        <GlobalStyle />
+        <Container>
+          {this.state.pageStart
+            ? <button onClick={this.onChangePage}>Acessar Lista<ArrowForwardIcon /></button>
+            : <button onClick={this.onChangePage}>Voltar Lista<ArrowBackIcon style={{ margin: "0 10px" }} /></button>}
+        </Container>
+        {this.state.pageStart ? <Cadastro /> : <ListUser />}
       </div>
     );
   }
