@@ -1,35 +1,40 @@
 import React from "react"
 import axios from "axios";
 import styled, {createGlobalStyle} from "styled-components";
-// import ListUser from "../ListUser/ListUser";
-
+import SendIcon from '@material-ui/icons/Send';
 
 const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 `
 
 const Container = styled.div` 
+    background-color: orange;
     display: flex;
     height: 100vh;
-    background-color: orange;
+    max-height: 900px;
     justify-content: center;
+    align-items: center;
 `
 
 const ContainerInputs = styled.input`
     height: 40px;
     border: none;
     outline: 0;
-    text-align: center;
+    text-align: center;   
 
 `
 
 const ContaninerButtons = styled.button` 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: none;
     outline: 0;
     width: 150px;
-    height: 30px;
+    height: 40px;
     background-color: blue;
     color: white;
     
@@ -45,6 +50,10 @@ const ContainerBackGround = styled.div`
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+    height: 300px;
+    width: 300px;
+    background-color: #191a19;
+    border-radius: 5px;
 
 `
 
@@ -61,8 +70,9 @@ class Cadastro extends React.Component {
     state = {
         nome: '',
         email: '',
+        pageStart: true,
     }
-
+    
     onChangeNome = (event) => {
         this.setState({ nome: event.target.value })
      }
@@ -80,15 +90,12 @@ class Cadastro extends React.Component {
         .then((res) => {
             alert('Usuário cadastrado com sucesso!')
             this.setState({nome: '', email: ''})
-            // this.getUserList()
         })
         .catch((error) => {
-            alert(error.response);
+            alert('Nenhum usuário foi cadastrado');
         })
     }
-
-
-
+    
     render() {        
         return(
             <Container>   
@@ -108,7 +115,7 @@ class Cadastro extends React.Component {
                         value={this.state.email}
                         onChange={this.onChangeEmail}
                     />
-                    <ContaninerButtons onClick={this.createUser}>Salvar</ContaninerButtons>
+                    <ContaninerButtons onClick={this.createUser}>Cadastrar<SendIcon/></ContaninerButtons>
                 </ContainerBackGround>
             </Container>
         )
