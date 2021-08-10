@@ -9,7 +9,8 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 
 const Post = (props) => {
-  const [comment, setComment] = useState('')
+  const [comment, setComment] = useState([])
+  const [comentIterator, setComentIterator] = useState(0)
   const [commentClick, setCommentClick] = useState(false)
   const [like, setLike] = useState(false)
   const [likeMore, setLikeMore] = useState(0)
@@ -32,11 +33,19 @@ const Post = (props) => {
   }
 
   const onClickComentario = () => {
-    
+    setCommentClick(!commentClick)
   };
 
   const enviarComentario = (comentario) => {
+    const CopyArray = [...comment, comentario]
+    setComment(CopyArray)
+    setCommentClick(false)
+    setComentIterator(comentIterator + 1)
+  }
 
+  let componenteComentario
+  if (commentClick) {
+    componenteComentario = <SecaoComentario enviarComentario={enviarComentario} />
   }
 
   return (
@@ -58,10 +67,10 @@ const Post = (props) => {
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-        // valorContador={numeroComentarios}
+          valorContador={comentIterator}
         />
       </PostFooter>
-      {/* {caixaDeComentario} */}
+      {componenteComentario}
     </PostContainer>
   )
 }
