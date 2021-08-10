@@ -9,37 +9,56 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 
 const Post = (props) => {
-
+  const [comment, setComment] = useState('')
+  const [commentClick, setCommentClick] = useState(false)
+  const [like, setLike] = useState(false)
+  const [likeMore, setLikeMore] = useState(0)
 
   const onClickCurtida = () => {
+    if (like) {
+      setLike(false)
+      setLikeMore(0)
+    } else {
+      setLike(true)
+      setLikeMore(1)
+    }
   };
 
+  let iconeCurtida
+  if (like) {
+    iconeCurtida = iconeCoracaoPreto
+  } else {
+    iconeCurtida = iconeCoracaoBranco
+  }
+
   const onClickComentario = () => {
+    
   };
 
   const enviarComentario = (comentario) => {
+
   }
 
   return (
     <PostContainer>
       <PostHeader>
-        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto src={props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={props.fotoPost} alt={'Imagem do post'} />
 
       <PostFooter>
         <IconeComContador
-          // icone={iconeCurtida}
+          icone={iconeCurtida}
           onClickIcone={onClickCurtida}
-          // valorContador={numeroCurtidas}
+          valorContador={likeMore}
         />
 
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-          // valorContador={numeroComentarios}
+        // valorContador={numeroComentarios}
         />
       </PostFooter>
       {/* {caixaDeComentario} */}

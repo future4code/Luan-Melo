@@ -2,7 +2,7 @@ import React from 'react';
 import Post from './components/Post/Post';
 import styled from "styled-components"
 
-const AppContainer = styled.div `
+const AppContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -10,6 +10,7 @@ const AppContainer = styled.div `
 `
 
 const App = () => {
+
   return (
     <AppContainer>
       <Post
