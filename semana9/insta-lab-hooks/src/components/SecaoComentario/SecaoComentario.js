@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 
 const CommentContainer = styled.div`
@@ -7,7 +7,7 @@ const CommentContainer = styled.div`
     padding: 5px;
 `
 
-const InputComment = styled.input `
+const InputComment = styled.input`
     width: 100%;
     margin-right: 5px;
 `
@@ -15,7 +15,7 @@ const InputComment = styled.input `
 const SecaoComentario = (props) => {
 
 	const [inputMensagem, setInputMensagem] = useState('')
- 
+
 	const onChangeComentario = (event) => {
 		setInputMensagem(event.target.value)
 	}
@@ -28,7 +28,7 @@ const SecaoComentario = (props) => {
 				value={inputMensagem}
 				onChange={onChangeComentario}
 			/>
-			<button onClick={() =>  props.enviarComentario(inputMensagem) } >Enviar</button>
+			<button onClick={() => props.enviarComentario(inputMensagem)} >Enviar</button>
 		</CommentContainer>
 	)
 }
