@@ -4,7 +4,7 @@ import PokeCard from './components/PokeCard';
 import { Container } from './components/PokeCard/style';
 
 const url = "https://pokeapi.co/api/v2/pokemon/?limit=151"
-const App = (props) => {
+const App = () => {
 
   const [pokeList, setPokeList] = useState([])
   const [pokeUrl, setUrl] = useState('')
@@ -41,13 +41,13 @@ const App = (props) => {
   }
 
   return (
-        
+
     <Container>
       <select value={pokeName} onChange={changeName}>
         <option value={""}>Nenhum</option>
         {pokeList.map(({ url, name }, index) => {
           return (
-            
+
             <option key={index} value={url}>
               {name}
             </option>
