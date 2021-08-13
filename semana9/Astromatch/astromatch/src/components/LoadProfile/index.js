@@ -6,7 +6,7 @@ import MenuApp from "../MenuApp"
 import {
     ContainerGeral,
     ContainerPerfil,
-    Img
+    Img,
 }
     from "./estilo"
 
@@ -14,15 +14,14 @@ const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:lu
 
 const LoadProfile = () => {
     const [person, setPerson] = useState({})
-    const [like, setLike] = useState(false)
     const { id, name, photo, bio, age } = person
 
     useEffect(() => {
         getPerson()
-    }, [])
+    }, [person])
 
     const getPerson = async () => {
-        await axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:luanmelo/person")
+        await axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:luan/person")
             .then((res) => {
                 setPerson(res.data.profile)
             })
@@ -38,12 +37,8 @@ const LoadProfile = () => {
         }
 
         try {
-            const choosePerson = await axios.post(`${url}/choose-person`, body)
-            if (choosePerson.data.isMatch) {
-                setLike(true)
-            } else {
-                getPerson()
-            }
+            await axios.post(`${url}/choose-person`, body)
+            getPerson()
         } catch {
             console.log('Error')
         }
@@ -62,8 +57,8 @@ const LoadProfile = () => {
                     <button onClick={() => personView(false)}>delete</button>
                 </div>
             </ContainerPerfil>
-            {like}
         </ContainerGeral>
+
     )
 }
 
