@@ -1,25 +1,8 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
+import React from 'react'
 
 
-const Header = () => {
+const Header = (props) => {
     const IsMatchesPage = window.location.pathname.includes('matches')
-
-    console.log(IsMatchesPage)
-
-    const clearPage = async () => {
-        try {
-            await axios
-                .put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/luan/clear")
-            
-        } catch {
-            console.log('Error')
-        }
-        
-    }
-
-    // useEffect(() => {
-    // }, [])
 
     return (
         <div>
@@ -27,11 +10,6 @@ const Header = () => {
                 <a href="/">Procurar alguém</a> :
                 <a href="/matches">Ver quem deu match</a>
             }
-
-            <div>
-                {IsMatchesPage ?
-                    <button onClick={clearPage}>Esvaziar Página</button> : null}
-            </div>
         </div>
 
     )

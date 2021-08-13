@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 
 
-const Matches = () => {
+const Matches = (props) => {
     const [matches, setMatches] = useState([])
 
     useEffect(() => {
@@ -19,11 +19,10 @@ const Matches = () => {
             })
     }
 
-    console.log('matches', matches)
-
     return (
         <>
             {matches.map((profile) => <div key={profile.name}>{profile.name}</div>)}
+            <button onClick={props.clearPage}>Limpar</button>
         </>
     )
 }

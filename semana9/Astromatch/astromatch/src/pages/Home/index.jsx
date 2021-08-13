@@ -24,7 +24,7 @@ const Home = (props) => {
         setLoading(true)
         await axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/luan/person")
             .then((res) => {
-                res.data.profile.id && setPerson(res.data.profile)
+                res.data?.profile?.id && setPerson(res.data.profile)
             })
             .catch((err) => {
                 console.log(err)
@@ -51,9 +51,9 @@ const Home = (props) => {
         <ContainerGeral>
             <ContainerPerfil>
                 {
-                    isLoading ? 
-                        <h1>Loading</h1> 
-                        : 
+                    isLoading ?
+                        <h1>Loading</h1>
+                        :
                         id ?
                             (
                                 <>
@@ -70,11 +70,11 @@ const Home = (props) => {
                             (
                                 <>
                                     <h1>We have no more suggestions</h1>
-                                    <button onClick={() => props.clearPage()}>Reset</button>
+                                    <button onClick={props.clearPage}>Reset</button>
                                 </>
-        
+
                             )
-                    
+
                 }
             </ContainerPerfil>
         </ContainerGeral>
