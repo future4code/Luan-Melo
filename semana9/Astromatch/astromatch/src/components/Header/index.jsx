@@ -1,16 +1,24 @@
 import React from 'react'
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 
+import {
+    Container,
+}
+    from "./estilo"
 
-const Header = (props) => {
+const Header = () => {
     const IsMatchesPage = window.location.pathname.includes('matches')
 
     return (
-        <div>
+        <Container>
+           <Logo/>
+
             {IsMatchesPage ?
                 <a href="/">Procurar alguém</a> :
                 <a href="/matches">Ver quem deu match</a>
             }
-        </div>
+            
+        </Container>
 
     )
 }

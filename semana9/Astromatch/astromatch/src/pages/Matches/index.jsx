@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
-
+import { ContainerPerfil } from '../Matches/estilo'
 
 const Matches = (props) => {
     const [matches, setMatches] = useState([])
@@ -20,10 +20,10 @@ const Matches = (props) => {
     }
 
     return (
-        <>
+        <ContainerPerfil>
             {matches.map((profile) => <div key={profile.name}>{profile.name}</div>)}
             <button onClick={props.clearPage}>Limpar</button>
-        </>
+        </ContainerPerfil>
     )
 }
 

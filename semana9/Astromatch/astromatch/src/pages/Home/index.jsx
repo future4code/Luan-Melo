@@ -1,11 +1,19 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-// import Buttons from "../../Buttons"
+
+// Icons Material
+
+import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { ReactComponent as Hearth } from '../../assets/hearth.svg';
+import { ReactComponent as Cancel } from '../../assets/cancel.svg';
 
 import {
     ContainerGeral,
     ContainerPerfil,
-    Img
+    Img,
+    Button,
+
 }
     from "./estilo"
 
@@ -49,7 +57,7 @@ const Home = (props) => {
 
     return (
         <ContainerGeral>
-            <ContainerPerfil>
+            <>
                 {
                     isLoading ?
                         <h1>Loading</h1>
@@ -57,12 +65,27 @@ const Home = (props) => {
                         id ?
                             (
                                 <>
-                                    <p>{name}, {age}</p>
-                                    <Img src={photo} value={photo} alt={name} />
-                                    <p>{bio}</p>
+                                    <ContainerPerfil>
+                                        <div>
+                                            <Img src={photo} value={photo} alt={name} />
+
+                                        </div>
+                                        <div>
+                                            <p><strong>{name}</strong>, {age}</p>
+                                            <CheckCircleIcon style={{ color: "#3a63ab" }} />
+                            
+                                        </div>
+                                        <div>
+                                            <p>{bio}</p>
+                                        </div>
+                                    </ContainerPerfil>
                                     <div>
-                                        <button onClick={() => personView(true)}>match</button>
-                                        <button onClick={() => personView(false)}>delete</button>
+                                        <Button onClick={() => personView(true)}>
+                                            <Hearth />
+                                        </Button>
+                                        <Button onClick={() => personView(false)}>
+                                            <Cancel />
+                                        </Button>
                                     </div>
                                 </>
                             )
@@ -70,14 +93,15 @@ const Home = (props) => {
                             (
                                 <>
                                     <h1>We have no more suggestions</h1>
-                                    <button onClick={props.clearPage}>Reset</button>
+                                    <button onClick={props.clearPage}><ThreeSixtyIcon /></button>
                                 </>
 
                             )
 
                 }
-            </ContainerPerfil>
+            </>
         </ContainerGeral>
+
     )
 }
 
