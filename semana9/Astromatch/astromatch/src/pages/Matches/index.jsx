@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
-import { ContainerPerfil } from '../Matches/estilo'
+import { ContainerPerfil, MatchesContainer, MatchesProfile, Button } from '../Matches/estilo'
+import Headers from '../../components/Header/index'
+import { ReactComponent as Restart } from '../../assets/restart.svg';
 
 const Matches = (props) => {
     const [matches, setMatches] = useState([])
@@ -21,8 +23,19 @@ const Matches = (props) => {
 
     return (
         <ContainerPerfil>
-            {matches.map((profile) => <div key={profile.name}>{profile.name}</div>)}
-            <button onClick={props.clearPage}>Limpar</button>
+            <Headers />
+            <MatchesContainer>
+                {matches.map((profile) => <MatchesProfile key={profile.name}>
+                    <div>
+                        <img src={profile.photo} alt={profile.name} />
+                    </div>
+                    <p>{profile.name}</p>
+
+                </MatchesProfile>)}
+            </MatchesContainer>
+            <div>
+                <Button onClick={props.clearPage}><Restart /></Button>
+            </div>
         </ContainerPerfil>
     )
 }

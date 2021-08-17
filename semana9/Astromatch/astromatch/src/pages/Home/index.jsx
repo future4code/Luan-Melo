@@ -1,18 +1,20 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-
+import { DiamonLoading } from 'react-loadingg'
 // Icons Material
 
-import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { ReactComponent as Hearth } from '../../assets/hearth.svg';
 import { ReactComponent as Cancel } from '../../assets/cancel.svg';
+import { ReactComponent as Restart } from '../../assets/restart.svg';
+import Headers from '../../components/Header/index'
 
 import {
     ContainerGeral,
     ContainerPerfil,
     Img,
     Button,
+    VoidProfile
 
 }
     from "./estilo"
@@ -23,6 +25,7 @@ const Home = (props) => {
     const [person, setPerson] = useState({})
     const [isLoading, setLoading] = useState(false)
     const { id, name, photo, bio, age } = person
+    const [classAnimation, setClassAnimation] = useState(undefined)
 
     useEffect(() => {
         getPerson()
@@ -30,6 +33,7 @@ const Home = (props) => {
 
     const getPerson = async () => {
         setLoading(true)
+        setClassAnimation(undefined)
         await axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/luan/person")
             .then((res) => {
                 res.data?.profile?.id && setPerson(res.data.profile)
@@ -41,6 +45,7 @@ const Home = (props) => {
     }
 
     const personView = async (value) => {
+        value ? setClassAnimation('roll-out-right') : setClassAnimation('roll-out-left')
         const body = {
             "id": id,
             "choice": value
@@ -57,15 +62,16 @@ const Home = (props) => {
 
     return (
         <ContainerGeral>
+            <Headers />
             <>
                 {
                     isLoading ?
-                        <h1>Loading</h1>
+                        <DiamonLoading color="#DD3A32" />
                         :
                         id ?
                             (
                                 <>
-                                    <ContainerPerfil>
+                                    <ContainerPerfil className={classAnimation}>
                                         <div>
                                             <Img src={photo} value={photo} alt={name} />
 
@@ -73,28 +79,28 @@ const Home = (props) => {
                                         <div>
                                             <p><strong>{name}</strong>, {age}</p>
                                             <CheckCircleIcon style={{ color: "#3a63ab" }} />
-                            
+
                                         </div>
                                         <div>
                                             <p>{bio}</p>
                                         </div>
                                     </ContainerPerfil>
                                     <div>
-                                        <Button onClick={() => personView(true)}>
-                                            <Hearth />
-                                        </Button>
                                         <Button onClick={() => personView(false)}>
                                             <Cancel />
+                                        </Button>
+                                        <Button onClick={() => personView(true)}>
+                                            <Hearth />
                                         </Button>
                                     </div>
                                 </>
                             )
                             :
                             (
-                                <>
+                                <VoidProfile>
                                     <h1>We have no more suggestions</h1>
-                                    <button onClick={props.clearPage}><ThreeSixtyIcon /></button>
-                                </>
+                                    <Button onClick={props.clearPage}><Restart title="restart" /></Button>
+                                </VoidProfile>
 
                             )
 

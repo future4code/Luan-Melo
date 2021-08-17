@@ -1,8 +1,11 @@
 import React from 'react'
 import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { ReactComponent as Chat } from '../../assets/chat.svg';
+import { ReactComponent as Return } from '../../assets/return.svg';
 
 import {
     Container,
+    Button
 }
     from "./estilo"
 
@@ -11,13 +14,13 @@ const Header = () => {
 
     return (
         <Container>
-           <Logo/>
-
-            {IsMatchesPage ?
-                <a href="/">Procurar alguém</a> :
-                <a href="/matches">Ver quem deu match</a>
-            }
-            
+            <div>
+                {IsMatchesPage && <a href="/"><Button><Return/></Button></a>}
+            </div>
+            <Logo/>
+            <div>
+                {!IsMatchesPage && <a href="/matches"><Button><Chat/></Button></a>}          
+            </div>
         </Container>
 
     )

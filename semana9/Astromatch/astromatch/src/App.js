@@ -2,7 +2,6 @@ import './App.css';
 import React from 'react';
 import Home from './pages/Home/index';
 import Matches from './pages/Matches/index'
-import Headers from './components/Header/index'
 import axios from 'axios'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
@@ -41,7 +40,6 @@ const App = () => {
   return (
     <Container>
       <BrowserRouter>
-        <Headers/>
         <GlobalStyle />
         <Switch>
           <Route exact path="/" component={() => <Home clearPage={() => clearPage()} />} />
