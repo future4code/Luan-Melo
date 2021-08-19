@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Switch, Route, useHistory } from 'react-router-dom'
-import SignUpTrip from '../../components/SignUpTrip'
+import { useHistory } from 'react-router-dom'
+import { useTripList } from '../../hooks/useTripList'
 
 const Container = styled.div`
   height: 100vh;
@@ -14,23 +14,22 @@ const Container = styled.div`
 
 const ListTripsPage = () => {
   const history = useHistory()
+
   const goBack = () => {
     history.goBack()
   }
 
+  const data = useTripList()
+  console.log('useData', data)
+
   return (
     <Container>
       <h1>ListTripsPage</h1>
-      <button onClick={goBack}>Voltar</button>
 
-      <a href="listTrips/application">
-        <div>
-          <button>Cadastrar</button>
-        </div>
-      </a>
-      <Switch>
-        <Route exact path="listTrips/application" component={SignUpTrip} />
-      </Switch>
+      <button onClick={goBack}>Voltar</button>
+      <div>
+        <button>Cadastrar</button>
+      </div>
     </Container>
   )
 }
