@@ -1,34 +1,49 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTripList } from '../../hooks/useTripList'
 
 const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: white;
   h1 {
     color: white;
     text-align: center;
+    font-size: 25px;
   }
 `
 
 const ListTripsPage = () => {
-  const history = useHistory()
-
-  const goBack = () => {
-    history.goBack()
-  }
-
   const data = useTripList()
-  console.log('useData', data)
+
+  const mapear = data?.map(
+    ({ name, description, planet, durationInDays, date }, index) => {
+      return (
+        <div key={index}>
+          <p>Name: {name}</p>
+          <p>Description: {description}</p>
+          <p>Planet:{planet}</p>
+          <p>Duration: {durationInDays}</p>
+          <p>Date: {date}</p>
+        </div>
+      )
+    }
+  )
 
   return (
     <Container>
       <h1>ListTripsPage</h1>
-
-      <button onClick={goBack}>Voltar</button>
+      {mapear}
       <div>
-        <button>Cadastrar</button>
+        <Link to="/">Voltar</Link>
+      </div>
+      <div>
+        <Link to="/applicationform">Se cadastrar</Link>
       </div>
     </Container>
   )

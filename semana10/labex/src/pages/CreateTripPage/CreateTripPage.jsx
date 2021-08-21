@@ -1,5 +1,9 @@
 const CreateTripPage = () => {
-  return <div></div>
+  return <div>
+
+
+    
+  </div>
 }
 
 export default CreateTripPage

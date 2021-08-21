@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
-import { doGetTrip } from '../services/request-api';
+import { useState, useEffect } from 'react'
+import { doGetTrip } from '../services/request-api'
 
 export function useTripList() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState()
 
   useEffect(() => {
-     async function fetchList() {
+    async function fetchList() {
       const response = await doGetTrip()
-      setData(response.data.trips)
+      console.log(response.data.trips)
+      response?.data?.trips && setData(response.data.trips)
     }
-    fetchList();
-  }, []);
+    fetchList()
+  }, [])
 
   return data
 }
