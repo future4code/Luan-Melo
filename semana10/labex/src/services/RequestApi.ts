@@ -1,5 +1,9 @@
 import axios from 'axios'
 import {
+  IApplyResponse,
+  IBodyApplyTrip,
+  IBodyCreateTrip,
+  IBodyCreateTripResponse,
   IGetTripDetailBody,
   IGetTripDetailResponse,
   IGetTripListResponse,
@@ -9,9 +13,10 @@ import {
 
 export const doLogin = async (body: ILoginBody): Promise<ILoginResponse> => {
   try {
+    const { email, password } = body
     const { data } = await axios.post<ILoginResponse>(
       'https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/login',
-      { body }
+      { email, password }
     )
     return data
   } catch (error) {
@@ -36,6 +41,41 @@ export const doGetTripDetail = async (
   try {
     const { data } = await axios.get<IGetTripDetailResponse>(
       `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:${body.aluno}/trip/:${body.id}`,
+      {
+        headers: {
+          auth: `${body.token}`
+        }
+      }
+    )
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export const doSendApplyTrip = async (
+  body: IBodyApplyTrip
+): Promise<IApplyResponse> => {
+  try {
+    const { name, age, applicationText, profession, country } = body
+    const { data } = await axios.post<IApplyResponse>(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${body.id}/apply`,
+      { name, age, applicationText, profession, country }
+    )
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export const doCreateTrip = async (
+  body: IBodyCreateTrip
+): Promise<IBodyCreateTripResponse> => {
+  try {
+    const { name, planet, description, date, durationInDays } = body
+    const { data } = await axios.post<IBodyCreateTripResponse>(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips`,
+      { name, planet, description, date, durationInDays },
       {
         headers: {
           auth: `${body.token}`

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { useTripList } from '../../hooks/useTripList'
@@ -21,7 +20,7 @@ const Container = styled.div`
 
 const TripsList = () => {
   const { goBack, push } = useHistory()
-  const data = useTripList()
+  const {data, loading} = useTripList()
 
   return (
     <Container>
@@ -33,7 +32,7 @@ const TripsList = () => {
       </div>
       <h1>Lista de Viagens</h1>
 
-      {data?.map(
+      {loading ? <>Carregando...</> : data?.map(
         ({ name, description, planet, durationInDays, date }, index) => {
           return (
             <div key={index}>

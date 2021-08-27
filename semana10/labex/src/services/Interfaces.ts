@@ -4,9 +4,15 @@ interface ILoginBody {
   password: string
 }
 
+interface IUser {
+  email: string
+  id: string
+}
+
 interface ILoginResponse {
   success: boolean
   token: string
+  user: IUser
 }
 
 //  TRIP LIST
@@ -53,6 +59,46 @@ interface IGetTripDetailResponse {
   trip: ITripDetail
 }
 
+// Apply Trip
+
+interface IBodyApplyTrip {
+  applicationText: string
+  profession: string
+  age: number
+  name: string
+  country: string
+  id: string
+}
+
+interface IApplyResponse {
+  success: string
+  message: string
+}
+
+// Create Trip
+
+interface IBodyCreateTrip {
+  name: string
+  planet: string
+  date: string
+  description: string
+  durationInDays: string
+  token: string
+}
+
+interface ITripCreatResponse {
+  id: string
+  name: string
+  description: string
+  planet: string
+  durationInDays: number
+  date: string
+}
+
+interface IBodyCreateTripResponse {
+  trip: ITripCreatResponse
+}
+
 export type {
   ILoginBody,
   ILoginResponse,
@@ -61,5 +107,10 @@ export type {
   IGetTripDetailResponse,
   IGetTripDetailBody,
   ICandidates,
-  ITripDetail
+  ITripDetail,
+  IBodyApplyTrip,
+  IApplyResponse,
+  IBodyCreateTripResponse,
+  IBodyCreateTrip,
+  IUser
 }

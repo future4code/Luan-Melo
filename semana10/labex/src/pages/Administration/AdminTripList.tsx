@@ -5,6 +5,7 @@ const AdminTripList = () => {
   const { push, goBack } = useHistory()
   const handleLogout = () => {
     console.log('logout')
+    localStorage.removeItem('token')
   }
 
   return (
