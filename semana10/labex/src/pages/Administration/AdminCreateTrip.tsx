@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useHistory } from 'react-router'
 import { doCreateTrip } from '../../services/RequestApi'
 import { PlanetList } from '../../services/PlanetList'
+import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 
 interface formErrorMessageProps {
   errorMessage: string[]
@@ -83,7 +84,7 @@ const AdminCreateTrip: React.FC = () => {
   }
 
   return (
-    <>
+    <PrivateRoute>
       {createTripLoading ? (
         <h1>Carregando...</h1>
       ) : (
@@ -138,7 +139,7 @@ const AdminCreateTrip: React.FC = () => {
           </div>
         </div>
       )}
-    </>
+    </PrivateRoute>
   )
 }
 

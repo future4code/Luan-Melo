@@ -15,7 +15,7 @@ export const doLogin = async (body: ILoginBody): Promise<ILoginResponse> => {
   try {
     const { email, password } = body
     const { data } = await axios.post<ILoginResponse>(
-      'https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/login',
+      'https://us-central1-labenu-apis.cloudfunctions.net/labeX/leticia-chijo/login',
       { email, password }
     )
     return data
@@ -27,7 +27,7 @@ export const doLogin = async (body: ILoginBody): Promise<ILoginResponse> => {
 export const doGetTrip = async (): Promise<IGetTripListResponse> => {
   try {
     const { data } = await axios.get<IGetTripListResponse>(
-      'https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips'
+      'https://us-central1-labenu-apis.cloudfunctions.net/labeX/leticia-chijo/trips'
     )
     return data
   } catch (error) {
@@ -40,7 +40,7 @@ export const doGetTripDetail = async (
 ): Promise<IGetTripDetailResponse> => {
   try {
     const { data } = await axios.get<IGetTripDetailResponse>(
-      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:${body.aluno}/trip/:${body.id}`,
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/leticia-chijo/trip/${body.id}`,
       {
         headers: {
           auth: `${body.token}`
@@ -59,7 +59,7 @@ export const doSendApplyTrip = async (
   try {
     const { name, age, applicationText, profession, country } = body
     const { data } = await axios.post<IApplyResponse>(
-      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${body.id}/apply`,
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/leticia-chijo/trips/${body.id}/apply`,
       { name, age, applicationText, profession, country }
     )
     return data
@@ -74,7 +74,7 @@ export const doCreateTrip = async (
   try {
     const { name, planet, description, date, durationInDays } = body
     const { data } = await axios.post<IBodyCreateTripResponse>(
-      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips`,
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/leticia-chijo/trips`,
       { name, planet, description, date, durationInDays },
       {
         headers: {

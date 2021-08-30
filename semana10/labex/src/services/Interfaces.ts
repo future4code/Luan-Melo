@@ -31,7 +31,6 @@ interface IGetTripListResponse {
 
 // TRIP DETAIL
 interface IGetTripDetailBody {
-  aluno: string
   id: string
   token: string
 }

@@ -1,28 +1,60 @@
 import { useState } from 'react'
-import { useLogin } from '../../hooks/useLogin'
+import { useHistory } from 'react-router-dom'
+import { PAGES_URL } from '../../services/Constants'
+import { doLogin } from '../../services/RequestApi'
 
 const Login = () => {
-  const [adminEmail, setAdminEmail] = useState('')
-  const [adminPassword, setAdminPassword] = useState('')
-  const loginBody = { email: adminEmail, password: adminPassword }
-  const { token, user } = useLogin(loginBody)
+  const [state, setState] = useState({
+    email: '',
+    password: ''
+  })
+  const [error, setError] = useState('')
+  const { push } = useHistory()
 
-  const changeEmail = (e: string) => {
-    setAdminEmail(e)
+  const handleSetState = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError('')
+    const { name, value } = e.target
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value
+    }))
   }
 
-  const changePassword = (e: string) => {
-    setAdminPassword(e)
-  }
-
-  if (token) {
-    localStorage.setItem('token', token)
-    localStorage.setItem('id', user?.id || '')
+  const handleLogin = async () => {
+    try {
+      const { email, password } = state
+      if (email.length > 0 && password.length > 0) {
+        const response = await doLogin({ email, password })
+        if (response.success) {
+          localStorage.setItem('token', response.token)
+          localStorage.setItem('user', JSON.stringify(response.user))
+          push(PAGES_URL.ADMIN_TRIP_LIST)
+        }
+      } else {
+        setError('Preencha o campo de Email / Senha.')
+      }
+    } catch (error) {}
   }
 
   return (
     <>
-      {token ? <div>dasd</div> : <>Você precisa se conectar</>}
+      <input
+        type={'text'}
+        placeholder={'Email'}
+        onChange={(e) => handleSetState(e)}
+        name="email"
+      />
+      <input
+        type={'text'}
+        placeholder={'Senha'}
+        onChange={(e) => handleSetState(e)}
+        name="password"
+      />
+      {error && <p>{error}</p>}
+      <button onClick={() => push(PAGES_URL.HOME)}>Voltar</button>
+      <button type="submit" onClick={() => handleLogin()}>
+        Entrar
+      </button>
     </>
   )
 }
