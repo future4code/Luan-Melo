@@ -32,7 +32,7 @@ export const doFeed = async ({ token }) => {
   try {
     const { data } = await axios.get("https://labeddit.herokuapp.com/posts", {
       headers: {
-        auth: `${token}`,
+        Authorization: `${token}`,
       },
     });
     return data;

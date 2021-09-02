@@ -30,7 +30,6 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <form>
       <input
         required
         name="email"
@@ -47,9 +46,10 @@ const Login = () => {
         placeholder="Type your password"
       />
 
-      <button type="submit" onClick={() => handleLogin()}>Login</button>
+      <button type="submit" onClick={() => handleLogin()}>
+        Login
+      </button>
       <button>Register</button>
-      </form>
     </div>
   );
 };
