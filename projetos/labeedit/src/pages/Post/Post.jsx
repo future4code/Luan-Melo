@@ -1,9 +1,12 @@
-const Post = () => {
+import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
+import PostContainer from "./PostContainer";
+
+const Feed = () => {
   return (
-    <div>
-      <h1>Post</h1>
-    </div>
+    <PrivateRoute>
+      <PostContainer />
+    </PrivateRoute>
   );
 };
 
-export default Post;
+export default Feed;

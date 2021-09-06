@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { doLogin } from "../../services/RequestApi";
 import { useHistory } from "react-router-dom";
+import Header from "../Header/Header";
 
 const Login = () => {
   const [state, setState] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
   const { push } = useHistory();
+  const { email, password } = state;
 
   const handleSetState = (e) => {
-    setError("");
     const { name, value } = e.target;
     setState((prevState) => ({
       ...prevState,
@@ -18,17 +18,18 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const { email, password } = state;
       const response = await doLogin({ email, password });
       localStorage.setItem("token", response.token);
+      console.log(response);
       push("/feed");
-    } catch (error) {
-      setError("Não foi possível acessar essa conta.");
-    }
+    } catch (error) {}
   };
+
+  const isDisabled = email.length === 0 || password.length === 0;
 
   return (
     <div>
+      <Header />
       <h1>Login</h1>
       <input
         required
@@ -46,10 +47,10 @@ const Login = () => {
         placeholder="Type your password"
       />
 
-      <button type="submit" onClick={() => handleLogin()}>
+      <button type="submit" onClick={() => handleLogin()} disabled={isDisabled}>
         Login
       </button>
-      <button>Register</button>
+      <button onClick={() => push("/register")}>Register</button>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Routes = () => (
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/feed" component={Feed} />
-      <Route exact path="/post" component={Post} />
+      <Route exact path="/post/:id/" component={Post} />
       <Route>
         <h1>ERROR</h1>
       </Route>

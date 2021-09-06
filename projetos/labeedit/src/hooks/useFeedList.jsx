@@ -12,7 +12,7 @@ export function useFeedList(token) {
       setData(response);
       setLoading(false);
     }
-    
+
     fetchList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
