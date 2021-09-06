@@ -1,8 +1,16 @@
 import { useHistory } from "react-router";
 import { useFeedList } from "../../hooks/useFeedList";
 import { doCreatePostVote, doRemovePostVote } from "../../services/RequestApi";
-import Header from "../Header/Header";
+import { ThreeHorseLoading } from "react-loadingg";
 import FeedPost from "./FeedPost";
+import {
+  CardContainer,
+  ContainerButton,
+  ButtonMore,
+  ButtonAnyLess,
+  Card,
+  ButtonRemove,
+} from "./Style";
 
 const FeedContainer = () => {
   const token = localStorage.getItem("token") || "";
@@ -31,37 +39,43 @@ const FeedContainer = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <CardContainer>
       <h1>Feed</h1>
       {loading ? (
-        <p>Carregando.. </p>
+        <ThreeHorseLoading />
       ) : (
         <div>
           <FeedPost />
           {data?.map(({ username, title, body, voteSum, commentCount, id }) => {
             return (
-              <div key={id}>
-                <div>
-                  <h1 onClick={() => handleRedirection(id)}>
-                    Name: {username}
-                  </h1>
-                  <h3>Post: {title}</h3>
-                  <p>Comentário: {body}</p>
-                  <p>Vote:{voteSum}</p>
-                  <p>{commentCount}Comentarios</p>
-                  <button onClick={() => handleVote(id, true)}>Mais</button>
-                  <button onClick={() => handleVote(id, false)}>Menos</button>
-                  <button onClick={() => handleDeleteVote(id)}>
-                    RemoveLike
-                  </button>
-                </div>
-              </div>
+              <Card key={id}>
+                <h3 onClick={() => handleRedirection(id)}>{username}</h3>
+                <h3>Title: {title}</h3>
+                <p>Comment: {body}</p>
+
+                <ContainerButton>
+                  <ButtonMore onClick={() => handleVote(id, true)}>
+                    +
+                  </ButtonMore>
+                  <span>{voteSum === null ? 0 : voteSum}</span>
+                  <ButtonAnyLess onClick={() => handleVote(id, false)}>
+                    -
+                  </ButtonAnyLess>
+                  <ButtonRemove onClick={() => handleDeleteVote(id)}>
+                    x
+                  </ButtonRemove>
+                  <p>
+                    {commentCount === null
+                      ? "0 comments"
+                      : `${commentCount} comments`}
+                  </p>
+                </ContainerButton>
+              </Card>
             );
           })}
         </div>
       )}
-    </div>
+    </CardContainer>
   );
 };
 

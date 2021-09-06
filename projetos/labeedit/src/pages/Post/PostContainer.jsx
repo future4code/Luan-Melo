@@ -6,6 +6,18 @@ import {
   doGetDetailsComments,
   doRemoveCommentPost,
 } from "../../services/RequestApi";
+import {
+  Container,
+  ButtonAdd,
+  ContainerCart,
+  ButtonLogout,
+  ContainerButton,
+  ButtonMore,
+  ButtonAnyLess,
+  ButtonRemove,
+  ContainerCommment,
+  ContainerScroll,
+} from "./Style";
 
 const Post = () => {
   const { goBack } = useHistory();
@@ -53,22 +65,31 @@ const Post = () => {
   };
 
   return (
-    <div>
+    <Container>
       {postDetails?.map((post) => {
-        const { body, username, userVote, createAt, id } = post;
-        console.log(post);
+        const { body, username, userVote, id } = post;
         return (
-          <div key={id}>
-            <h3>{username}</h3>
-            <p>{body}</p>
-            <p>{createAt}</p>
-            <p>{userVote}</p>
-            <button onClick={() => handleCommentVote(id, true)}>Mais</button>
-            <button onClick={() => handleCommentVote(id, false)}>Menos</button>
-            <button onClick={() => handleDeleteComment(id)}>
-              DeleteComment
-            </button>
-          </div>
+          <ContainerCart key={id}>
+            <ContainerScroll>
+              <div>
+                <h3>{username}</h3>
+                <hr />
+              </div>
+              <p>Comment: {body}</p>
+              <ContainerButton>
+                <ButtonMore onClick={() => handleCommentVote(id, true)}>
+                  +
+                </ButtonMore>
+                <p>{userVote}</p>
+                <ButtonAnyLess onClick={() => handleCommentVote(id, false)}>
+                  -
+                </ButtonAnyLess>
+                <ButtonRemove onClick={() => handleDeleteComment(id)}>
+                  x
+                </ButtonRemove>
+              </ContainerButton>
+            </ContainerScroll>
+          </ContainerCart>
         );
       })}
 
@@ -79,13 +100,14 @@ const Post = () => {
           onChange={(e) => setComments(e.target.value)}
           min={8}
         />
-
-        <button onClick={sendComments} disabled={loading}>
-          Post
-        </button>
+        <ContainerCommment>
+          <ButtonAdd onClick={sendComments} disabled={loading}>
+            Post
+          </ButtonAdd>
+          <ButtonLogout onClick={() => goBack()}>Voltar</ButtonLogout>
+        </ContainerCommment>
       </div>
-      <button onClick={() => goBack()}>Voltar</button>
-    </div>
+    </Container>
   );
 };
 

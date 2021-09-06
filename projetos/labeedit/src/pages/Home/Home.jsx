@@ -1,14 +1,19 @@
 import { useHistory } from "react-router";
-import Header from "../Header/Header";
+import { Button, Container, ContainerInformation } from "./Style";
 
 const Home = () => {
   const { push } = useHistory();
   return (
-    <div>
-      <Header />
-      <h1>HOME</h1>
-      <button onClick={() => push("/login")}>Acessar</button>
-    </div>
+    <Container>
+      <ContainerInformation>
+        <h1>Bem Vindo ao LabEddit</h1>
+        <p>
+          Aqui você pode acessar e visualizar feeds e comentá-los, não percam a
+          oportunidade de se inscrever e conhecer novas pessoas.
+        </p>
+        <Button onClick={() => push("/register")}>Ver mais</Button>
+      </ContainerInformation>
+    </Container>
   );
 };
 export default Home;
