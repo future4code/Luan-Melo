@@ -1,7 +1,7 @@
 export type user = {
-  id: number;
+  id?: number;
   name: string;
-  cpf: string;
+  cpf: number;
   age: number;
   balance: number;
 };
