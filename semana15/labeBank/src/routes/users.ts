@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { createUserBank, getUserBank, addNewBalance } from "../controllers/bankController";
+import {
+  createUserBank,
+  getUserBank,
+  addNewBalance,
+  bankPayments,
+} from "../controllers/bankController";
 
 const router = Router();
 
@@ -9,7 +14,8 @@ router.get("/users/:search", getUserBank);
 //Crair Conta - post
 router.post("/users", createUserBank);
 //Adicionar saldo
-router.put("/users/", addNewBalance);
+router.put("/users", addNewBalance);
 //Pagar conta - put or post
+router.post("/users/payments", bankPayments);
 //transferir dinheiro - post e delete
 export default router;

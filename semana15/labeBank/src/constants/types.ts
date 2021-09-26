@@ -3,7 +3,7 @@ export type user = {
   name: string;
   cpf: number;
   age: number;
-  balance: number;
+  balance?: number;
 };
 
 export type extract = {

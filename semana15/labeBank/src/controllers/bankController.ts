@@ -2,7 +2,12 @@ import { Request, Response } from "express";
 import { user } from "../constants/types";
 import { users } from "../constants/users";
 
-import { createUser, findUserBalance, addBalance } from "../models/bank";
+import {
+  createUser,
+  findUserBalance,
+  addBalance,
+  payment,
+} from "../models/bank";
 
 export const createUserBank = (req: Request, res: Response) => {
   try {
@@ -76,8 +81,28 @@ export const addNewBalance = (req: Request, res: Response) => {
       throw new Error("your balance cannot be negative");
     }
 
+    if (balance > 5000) {
+      res.statusCode = 422;
+      throw new Error("the balance limit for any account is 5000");
+    }
+
     const balanceValue: user | undefined = addBalance(name, cpf, balance);
     return res.send(balanceValue);
+  } catch (error: any) {
+    return res.send(error.message);
+  }
+};
+
+export const bankPayments = (req: Request, res: Response) => {
+  try {
+    const { name, value, description, data } = req.body;
+
+    if (description.length < 5) {
+      throw new Error("your description must contain at least 6 characters");
+    }
+
+    const result: user[] | string = payment(name, value, description, data);
+    return res.send(result);
   } catch (error: any) {
     return res.send(error.message);
   }
