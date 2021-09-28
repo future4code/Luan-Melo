@@ -182,10 +182,15 @@ a) SELECT *  FROM films WHERE name LIKE("%vida%");
 b) SELECT * FROM films WHERE name LIKE "%elite%" OR
     synopsis LIKE "%mulher";
 
-c) SELECT * FROM films WHERE date_to_throw < "2021-09-27";
+c) SELECT * FROM films WHERE date_to_throw < CURDATE();
 
-d) SELECT * FROM films WHERE date_to_throw < "2021-09-27"   AND (name LIKE "%elite%" OR
+d) SELECT * FROM films WHERE date_to_throw < CURDATE()  AND (name LIKE "%elite%" OR
     synopsis LIKE "%mulher") AND evaluation >= 7
 
-```
+
 ````
+
+
+
+
+
