@@ -68,6 +68,37 @@ b) ALTER TABLE Movie CHANGE evaluation evaluation FLOAT;
 INSERT INTO Movie(id, name, synopsis, date_to_throw, evaluation) 
 VALUES(30, "Harry Potter", "Ordem Da fênix", "2000-05-05", 8.5)
 
-c) 
+c) - não entendi direito
+
+d) - não entendi também!
+
+```
+
+### Exercício 7
+
+```sql
+a)  SELECT name, evaluation FROM Movie WHERE evaluation > 7.5;
+
+b) SELECT AVG(evaluation) FROM Movie;
+
+c) SELECT count(*) as quantidade FROM Movie WHERE date_to_throw > CURDATE();
+
+d) SELECT count(*) as quantidade FROM Movie WHERE playing_limit_date > CURDATE();
+
+e) SELECT MAX(evaluation) FROM Movie;
+
+j) SELECT MIN(evaluation) FROM Movie;
+
+```
+
+### Exercício 8
+```sql
+a) SELECT * FROM Movie ORDER BY name ASC;
+
+b) SELECT * FROM Movie ORDER BY name DESC LIMIT 5;
+
+c) SELECT * FROM Movie WHERE date_to_throw < CURDATE() LIMIT 3;
+
+d) SELECT * FROM Movie ORDER BY evaluation DESC LIMIT 3;
 
 ```
