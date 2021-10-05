@@ -38,3 +38,54 @@ Com esse endpoint, é possível alterar o nome e o nickname de um usuário, pass
 "name": "Xuxsa", -- novo nome
 "nickname": "antsena" -- novo apelido
 }
+
+IMAGEM: estrutura do banco de dados
+https://i.imgur.com/Eka17rp.jpeg
+
+QUERY Utilizadas:
+```
+CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `nickname` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `nickname_UNIQUE` (`nickname` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `mydb`.`users_tasks` (
+  `id` INT NOT NULL,
+  `id_users` INT NOT NULL,
+  `id_tasks` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_users_staks_1_idx` (`id_users` ASC) VISIBLE,
+  INDEX `fk_users_staks_2_idx` (`id_tasks` ASC) VISIBLE,
+  CONSTRAINT `fk_users_staks_1`
+    FOREIGN KEY (`id_users`)
+    REFERENCES `mydb`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_staks_2`
+    FOREIGN KEY (`id_tasks`)
+    REFERENCES `mydb`.`tasks` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+
+CREATE TABLE IF NOT EXISTS `mydb`.`tasks` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  `limiteDate` DATE NOT NULL,
+  `id_user_creator` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `user_id_creator_1_idx` (`id_user_creator` ASC) VISIBLE,
+  CONSTRAINT `user_id_creator_1`
+    FOREIGN KEY (`id_user_creator`)
+    REFERENCES `mydb`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+```
