@@ -11,8 +11,8 @@ console.log("Hello, world!");
 //1 - b
 
 // a mensagem Chamando o construtor da classe UserAccount vou impressa apenas 1x
-// console.log(:user.getName());
-console.log("SETVALUE", bank.setValue(10), "VALUE", bank.getValue());
+console.log(bank);
+// console.log("SETVALUE", bank.setValue(50), "VALUE", bank.getAccounts());
 
 //1 - c
 //  Como conseguimos ter acesso às propriedades privadas de uma classe?

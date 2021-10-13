@@ -11,50 +11,49 @@ class Transaction {
 }
 
 export class UserAccount {
-  private cpf: string;
-  private name: string;
-  private age: number;
-  private balance: number = 10;
+  public name: string;
+  public age: number;
+
   private transactions: Transaction[] = [];
 
-  public getName(): string {
-    return this.name;
-  }
-
-  public getCpf(): string {
-    return this.cpf;
-  }
-
-  public getAge(): number {
-    return this.age;
-  }
-
-  constructor(cpf: string, name: string, age: number) {
-    console.log("Chamando o construtor da classe UserAccount");
-    this.cpf = cpf;
+  constructor(
+    private cpf: string,
+    name: string,
+    age: number,
+    public balance: number
+  ) {
     this.name = name;
     this.age = age;
   }
-}
 
-export const user: UserAccount = new UserAccount("03320222123", "Luan", 10);
+  public setTransation(transation: Transaction): void {
+    this.transactions.push(transation);
+  }
+}
 
 export class Bank {
-  private accounts: UserAccount[];
-  private value: number;
+  private accounts: UserAccount[] = [];
 
-  public getValue(): number {
-    return this.value;
-  }
+  constructor(public name: string) {}
 
-  public setValue(value: number): number {
-    return (this.value = value);
-  }
-
-  constructor(accounts: UserAccount[], value: number) {
-    this.value = value;
-    this.accounts = accounts;
+  public accountsBank(bank: UserAccount): void {
+    this.accounts.push(bank);
   }
 }
+export const bank: Bank = new Bank("Itau");
+export const user: UserAccount = new UserAccount(
+  "30230203201",
+  "Luan",
+  23,
+  30000
+);
 
-export const bank: Bank = new Bank([], 10);
+export const user1: UserAccount = new UserAccount(
+  "31234514312213",
+  "Mat",
+  28,
+  300000
+);
+
+bank.accountsBank(user);
+bank.accountsBank(user1);
