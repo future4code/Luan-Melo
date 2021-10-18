@@ -9,4 +9,10 @@ export class ProductDatabase extends Database {
   public async getAllProduct() {
     return await Database.connection("ecommerce_products");
   }
+
+  public async deleteById(id: string) {
+    return await Database.connection("ecommerce_products")
+      .delete()
+      .where({ id });
+  }
 }

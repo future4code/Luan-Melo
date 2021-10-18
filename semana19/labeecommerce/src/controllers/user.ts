@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
 import { UserDatabase } from "../database/UserDatabase";
+import { CustomError } from "../errors/CustomError";
 import { User } from "../models/user";
 
-export const createUser = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+export const createUser = async (req: Request, res: Response): Promise<any> => {
   try {
     const { name, email, age } = req.body;
 
@@ -13,12 +11,10 @@ export const createUser = async (
       throw new Error("All fields must be filled.");
     }
 
-    const id: string = Date.now() + Math.ceil(Math.random()).toString();
-    const user: User = new User(id, name, email, age);
-    const userDatabase = new UserDatabase();
-    await userDatabase.create(user);
+    const checkUserDatabase = new UserDatabase();
+    await checkUserDatabase.creatureNewUser(name, email, age);
 
-    res.send("User Created Successfully!");
+    res.status(201).send("User Created Successfully!");
   } catch (error: any) {
     res.status(400).send(error.sqlMessage || error.message);
   }
